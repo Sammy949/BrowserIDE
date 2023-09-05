@@ -8,13 +8,13 @@
 	<div class="container">
 		<div class="left">
 			<label>HTML</label>
-			<textarea id="html-code" onkeyup="run()"></textarea>
+			<textarea id="html-code" class="language-html" onkeyup="run()"></textarea>
 
 			<label>CSS</label>
-			<textarea id="css-code" onkeyup="run()"></textarea>
+			<textarea id="css-code" class="language-css" onkeyup="run()"></textarea>
 
 			<label>JavaScript</label>
-			<textarea id="js-code" onkeyup="run()"></textarea>
+			<textarea id="js-code" class="language-js" onkeyup="run()"></textarea>
 		</div>
 		<div class="right">
 			<label>Output</label>
@@ -25,14 +25,22 @@
 	</div>
 	<script>
 		function run(){
-	let htmlCode = document.getElementById("html-code").value;
-	let cssCode = document.getElementById("css-code").value;
-	let jsCode = document.getElementById("js-code").value;
-	let output = document.getElementById("output");
-
-	output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode+"</style>";
-	output.contentWindow.eval(jsCode);
-}
+			let htmlCode = document.getElementById("html-code").value;
+			let cssCode = document.getElementById("css-code").value;
+			let jsCode = document.getElementById("js-code").value;
+			let output = document.getElementById("output");
+		
+			output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode+"</style>";
+			output.contentWindow.eval(jsCode);
+		}
 	</script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+	
+	<!-- and it's easy to individually load additional languages -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+	
+	<script>hljs.highlightAll();</script>
 </body>
 </html>
