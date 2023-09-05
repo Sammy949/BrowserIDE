@@ -9,13 +9,13 @@
 	<div class="container">
 		<div class="left">
 			<label>HTML</label>
-			<textarea id="html-code" class="language-html" onkeyup="run()"></textarea>
+			<textarea id="html-code" class="code" onkeyup="run()"></textarea>
 
 			<label>CSS</label>
-			<textarea id="css-code" class="language-css" onkeyup="run()"></textarea>
+			<textarea id="css-code" class="code" onkeyup="run()"></textarea>
 
 			<label>JavaScript</label>
-			<textarea id="js-code" class="language-js" onkeyup="run()"></textarea>
+			<textarea id="js-code" class="code" onkeyup="run()"></textarea>
 		</div>
 		<div class="right">
 			<label>Output</label>
@@ -42,5 +42,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
 	
 	<script>hljs.highlightAll();</script>
+
+	<script>
+		// first, find all the div.code blocks
+			document.querySelectorAll('.code').forEach(el => {
+			  // then highlight each
+			  hljs.highlightElement(el);
+			});
+	</script>
 </body>
 </html>
