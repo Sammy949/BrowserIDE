@@ -2,26 +2,23 @@
 <html>
 <head>
 	<title>Code Editor | SamY</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
 	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
 	<div class="container">
 		<div class="left">
 			<label>HTML</label>
-			<textarea id="html-code" class="code" onkeyup="run()"></textarea>
+			<textarea id="html-code" onkeyup="run()"></textarea>
 
 			<label>CSS</label>
-			<textarea id="css-code" class="code" onkeyup="run()"></textarea>
+			<textarea id="css-code" onkeyup="run()"></textarea>
 
 			<label>JavaScript</label>
-			<textarea id="js-code" class="code" onkeyup="run()"></textarea>
+			<textarea id="js-code" onkeyup="run()"></textarea>
 		</div>
 		<div class="right">
 			<label>Output</label>
-			<iframe id="output">
-				
-			</iframe>
+			<iframe id="output"></iframe>
 		</div>
 	</div>
 	<script>
@@ -31,24 +28,9 @@
 			let jsCode = document.getElementById("js-code").value;
 			let output = document.getElementById("output");
 		
-			output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode+"</style>";
+			output.contentDocument.body.innerHTML = htmlCode+ "<style>"+cssCode+"</style>";
 			output.contentWindow.eval(jsCode);
 		}
-	</script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-	
-	<!-- and it's easy to individually load additional languages -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
-	
-	<script>hljs.highlightAll();</script>
-
-	<script>
-		// first, find all the div.code blocks
-			document.querySelectorAll('.code').forEach(el => {
-			  // then highlight each
-			  hljs.highlightElement(el);
-			});
 	</script>
 </body>
 </html>
